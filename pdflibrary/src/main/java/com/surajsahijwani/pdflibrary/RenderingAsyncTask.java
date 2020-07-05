@@ -9,8 +9,8 @@ import com.surajsahijwani.pdflibrary.model.PagePart;
 import java.util.ArrayList;
 import java.util.List;
 
-import vudroid.core.DecodeService;
-import vudroid.core.codec.CodecPage;
+import org.vudroid.core.DecodeService;
+import org.vudroid.core.codec.CodecPage;
 
 class RenderingAsyncTask extends AsyncTask<Void, PagePart, Void> {
 

@@ -27,7 +27,7 @@ import com.surajsahijwani.pdflibrary.util.NumberUtils;
 import java.io.File;
 import java.io.IOException;
 
-import vudroid.core.DecodeService;
+import org.vudroid.core.DecodeService;
 
 import static com.surajsahijwani.pdflibrary.util.Constants.Cache.CACHE_SIZE;
 

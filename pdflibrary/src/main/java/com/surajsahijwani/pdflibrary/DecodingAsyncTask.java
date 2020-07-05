@@ -3,9 +3,9 @@ package com.surajsahijwani.pdflibrary;
 import android.net.Uri;
 import android.os.AsyncTask;
 
-import vudroid.core.DecodeService;
-import vudroid.core.DecodeServiceBase;
-import vudroid.pdfdroid.codec.PdfContext;
+import org.vudroid.core.DecodeService;
+import org.vudroid.core.DecodeServiceBase;
+import org.vudroid.pdfdroid.codec.PdfContext;
 
 public class DecodingAsyncTask extends AsyncTask<Void, Void, Void> {
 
