@@ -1,5 +1,5 @@
 # pdfviewer
-A simple PDF viewer library for android apps
+A simple PDF viewer library for android apps with Android X support
 
 How to use library:
 
