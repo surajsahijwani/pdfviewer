@@ -25,6 +25,6 @@ How to use library:
             pdfView.fromFile(new File(file.getPath()))
                     .enableSwipe(true)
                     .swipeVertical(true)
-                    .defaultPage(0)
+                    .defaultPage(1)
                     .load();
         }
