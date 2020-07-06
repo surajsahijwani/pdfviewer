@@ -28,3 +28,10 @@ How to use library:
                     .defaultPage(1)
                     .load();
         }
+
+4] XML code
+
+    <com.surajsahijwani.pdflibrary.PDFView
+        android:id="@+id/pdfView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
