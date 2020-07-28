@@ -18,7 +18,7 @@ How to use library:
 
 3] Java code
 
-    String mFilePath = android.os.Environment.getExternalStorageDirectory() + "\Download";
+    String mFilePath = android.os.Environment.getExternalStorageDirectory() + "/Download";
         File file = new File(mFilePath, "document.pdf");
         if (file.exists()) {
 
