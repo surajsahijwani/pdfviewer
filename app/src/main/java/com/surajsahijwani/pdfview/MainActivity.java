@@ -1,8 +1,10 @@
 package com.surajsahijwani.pdfview;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.surajsahijwani.pdflibrary.PDFView;
 
@@ -11,7 +13,6 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity {
 
     private PDFView pdfView;
-    private String downloadDirectoryName = "/Download";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +29,30 @@ public class MainActivity extends AppCompatActivity {
      */
     private void loadPDF() {
 
-        String mFilePath = android.os.Environment.getExternalStorageDirectory() + downloadDirectoryName;
-        File file = new File(mFilePath, "document.pdf");
+        String PDF_EXTENSION = ".pdf";
+        String downloadDirectoryName = "/Download";
+        String downloadFileName = "document";
+        File file;
+
+        try {
+            file = new File(Environment.getExternalStorageDirectory() + downloadDirectoryName + "/" + downloadFileName + PDF_EXTENSION);
+        } catch (Exception e) {
+            try {
+                file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "/" + downloadFileName + PDF_EXTENSION);
+            } catch (Exception ex) {
+                file = new File(String.valueOf(getExternalFilesDir(downloadFileName + PDF_EXTENSION)));
+            }
+        }
+
         if (file.exists()) {
 
-            pdfView.fromFile(new File(file.getPath()))
+            File finalFile = file;
+            new Handler().postDelayed(() -> pdfView.fromFile(new File(finalFile.getPath()))
                     .enableSwipe(true)
                     .swipeVertical(true)
-                    .defaultPage(0)
-                    .load();
+                    .defaultPage(1)
+                    .load(), 100);
+
         }
     }
 }

@@ -1,13 +1,14 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.surajsahijwani.pdfview"
         minSdkVersion 16
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -26,6 +27,5 @@ dependencies {
 
     implementation 'com.android.support:multidex:1.0.3'
     implementation project(path: ':pdflibrary')
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 }
