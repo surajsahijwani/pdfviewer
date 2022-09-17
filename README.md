@@ -18,16 +18,31 @@ How to use library:
 
 3] Java code
 
-    String mFilePath = android.os.Environment.getExternalStorageDirectory() + "/Download";
-        File file = new File(mFilePath, "document.pdf");
-        if (file.exists()) {
+    String PDF_EXTENSION = ".pdf";
+    String downloadDirectoryName = "/Download";
+    String downloadFileName = "document";
+    File file;
 
-            pdfView.fromFile(new File(file.getPath()))
+    try {
+         file = new File(Environment.getExternalStorageDirectory() + downloadDirectoryName + "/" + downloadFileName + PDF_EXTENSION);
+    } catch (Exception e) {
+         try {
+              file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "/" + downloadFileName + PDF_EXTENSION);
+         } catch (Exception ex) {
+              file = new File(String.valueOf(getExternalFilesDir(downloadFileName + PDF_EXTENSION)));
+       }
+    }
+
+    if (file.exists()) {
+
+        File finalFile = file;
+        new Handler().postDelayed(() -> pdfView.fromFile(new File(finalFile.getPath()))
                     .enableSwipe(true)
                     .swipeVertical(true)
                     .defaultPage(1)
-                    .load();
-        }
+                    .load(), 100);
+
+    }
 
 4] XML code
 
