@@ -3,12 +3,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion 33
-
     defaultConfig {
         applicationId "com.surajsahijwani.pdfview"
-        minSdkVersion 16
-        targetSdkVersion 33
+        compileSdk = 36
+        minSdk 16
+        targetSdk 36
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -21,6 +20,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'com.surajsahijwani.pdfview'
 }
 
 dependencies {
